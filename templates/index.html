@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Вітаємо у WebBot App! 🚀</h1>
+        <p class="col-md-8 fs-4">
+            Це ваш персональний менеджер завдань. Створюйте нотатки, керуйте справами та спілкуйтеся з колегами.
+        </p>
+
+        {% if current_user.is_authenticated %}
+            <a class="btn btn-primary btn-lg" href="/tasks" role="button">Мої завдання</a>
+            <a class="btn btn-outline-secondary btn-lg" href="/chat" role="button">Чат</a>
+        {% else %}
+            <a class="btn btn-primary btn-lg" href="/register" role="button">Почати роботу</a>
+            <a class="btn btn-secondary btn-lg" href="/login" role="button">Увійти</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row align-items-md-stretch">
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>Безпека</h2>
+            <p>Всі ваші дані надійно захищені. Ми використовуємо сучасні методи хешування паролів та авторизації.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+            <h2>Технології</h2>
+            <p>Цей додаток побудовано на Python (Flask), SQLAlchemy та Bootstrap 5. Підтримує WebSockets для чату.</p>
+            <a href="/about" class="btn btn-outline-dark" type="button">Дізнатись більше</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

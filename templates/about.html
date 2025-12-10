@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <h2 class="mb-4">Про цей додаток</h2>
+
+        <p class="lead">
+            Цей веб-додаток було розроблено в рамках курсового проекту / лабораторної роботи.
+        </p>
+
+        <hr>
+
+        <h4>🛠️ Використані технології:</h4>
+        <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item"><strong>Backend:</strong> Python, Flask</li>
+            <li class="list-group-item"><strong>База даних:</strong> SQLite, SQLAlchemy</li>
+            <li class="list-group-item"><strong>Frontend:</strong> HTML5, Jinja2, Bootstrap 5</li>
+            <li class="list-group-item"><strong>Real-time:</strong> Flask-SocketIO (WebSockets)</li>
+        </ul>
+
+        <h4>📋 Функціонал:</h4>
+        <ul>
+            <li>Реєстрація та авторизація користувачів.</li>
+            <li>CRUD операції (Створення, читання, оновлення, видалення) для завдань.</li>
+            <li>Чат у реальному часі.</li>
+            <li>REST API для інтеграції.</li>
+        </ul>
+
+        <div class="alert alert-info mt-4" role="alert">
+            Розробник: <strong>[Ваше Ім'я]</strong><br>
+            Група: <strong>[Ваша Група]</strong>
+        </div>
+    </div>
+</div>
+{% endblock %}

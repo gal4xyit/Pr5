@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if greeting %}
+        <h1>{{ greeting }}</h1>
+    {% else %}
+        <form method="POST">
+            <input type="text" name="name" placeholder="Введіть ваше ім'я">
+            <button type="submit">Надіслати</button>
+        </form>
+    {% endif %}
+{% endblock %}

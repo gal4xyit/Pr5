@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Загальний чат</h2>
+<div id="messages" class="border p-3 mb-3" style="height: 300px; overflow-y: scroll;"></div>
+<input type="text" id="myMessage" class="form-control" placeholder="Введіть повідомлення">
+<button onclick="sendMessage()" class="btn btn-primary mt-2">Надіслати</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+<script type="text/javascript">
+    var socket = io();
+
+    socket.on('connect', function() {
+        socket.send('Користувач {{ current_user.username }} приєднався!');
+    });
+
+    socket.on('message', function(msg) {
+        var node = document.createElement("div");
+        node.innerText = msg;
+        document.getElementById("messages").appendChild(node);
+    });
+
+    function sendMessage() {
+        var msg = document.getElementById("myMessage").value;
+        socket.send('{{ current_user.username }}: ' + msg);
+        document.getElementById("myMessage").value = '';
+    }
+</script>
+{% endblock %}
